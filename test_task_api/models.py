@@ -8,6 +8,9 @@ class Products(models.Model):
     model_of_product = models.CharField(verbose_name="Модель продукта", max_length=255)
     release = models.DateTimeField(verbose_name="Дата выхода продукта на рынок", null=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Продукт',
         verbose_name_plural = "Продукты"
@@ -52,6 +55,9 @@ class Object(models.Model):
     object_type = models.PositiveSmallIntegerField(
         verbose_name="Тип объекта", choices=TypeObject.choices
     )
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = "Объект сети"
